@@ -102,6 +102,7 @@ sub run {
       my ($self, $msg) = @_;
       push @{ $tb->{diag} }, $msg;
     };
+    local *Test::Stream::Context::diag = *Test::Builder::diag{CODE};
 
     my $agg = $self->aggregator(
       setup => sub { push @ran, $_[0] },
