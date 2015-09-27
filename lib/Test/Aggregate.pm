@@ -314,7 +314,7 @@ sub run {
     # some tests may have been run in BEGIN blocks.  This is deprecated and
     # now warns
     my $tab = 'Test::Aggregate::Builder';
-    $BUILDER->{$tab}{last_test} = @{ $BUILDER->{Test_Results} } || 0;
+    $BUILDER->{$tab}{last_test} = $BUILDER->current_test || 0;
     $BUILDER->{$tab}{aggregate_program} = $self->{aggregate_program};
 
     my $current_test = 0;
